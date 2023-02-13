@@ -1,13 +1,13 @@
-package com.example.emailapi;
+package com.example.emailservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmailApiApplication {
+public class EmailServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EmailApiApplication.class, args);
+        SpringApplication.run(EmailServiceApplication.class, args);
     }
 
 }

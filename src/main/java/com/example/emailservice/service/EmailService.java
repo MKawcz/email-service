@@ -1,8 +1,8 @@
-package com.example.emailapi.service;
+package com.example.emailservice.service;
 
-import com.example.emailapi.model.Email;
-import com.example.emailapi.model.Message;
-import com.example.emailapi.repository.EmailRepository;
+import com.example.emailservice.model.Email;
+import com.example.emailservice.model.Message;
+import com.example.emailservice.repository.EmailRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -23,7 +23,7 @@ public class EmailService {
     public Email updateEmail(long idEmail, Email updatedEmail) {
         var emailToUpdate = emailRepository.findById(idEmail);
         if (emailToUpdate.isPresent()) {
-            emailToUpdate.get().setEmail(updatedEmail.getEmail());
+            emailToUpdate.get().setAddress(updatedEmail.getAddress());
             emailRepository.save(emailToUpdate.get());
         }
         throw new RuntimeException("Email with given id does not exists");
@@ -54,9 +54,11 @@ public class EmailService {
     public void sendEmailToAll(Message message) {
         for (Email email : emailRepository.findAll()){
             SimpleMailMessage mailMessage = new SimpleMailMessage();
-            mailMessage.setTo(email.getEmail());
+            mailMessage.setFrom("kmikolaj49@gmail.com");
+            mailMessage.setTo(email.getAddress());
             mailMessage.setSubject(message.getSubject());
             mailMessage.setText(message.getContent());
+
             javaMailSender.send(mailMessage);
         }
     }

@@ -1,8 +1,8 @@
-package com.example.emailapi.controller;
+package com.example.emailservice.controller;
 
-import com.example.emailapi.model.Email;
-import com.example.emailapi.model.Message;
-import com.example.emailapi.service.EmailService;
+import com.example.emailservice.model.Email;
+import com.example.emailservice.model.Message;
+import com.example.emailservice.service.EmailService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -45,8 +45,8 @@ public class EmailController {
         return ResponseEntity.ok("Email with id: " + emailId + " has been deleted");
     }
 
-    @PostMapping
-    public ResponseEntity<String> sendEmailToAll(@RequestBody Message message) {
+    @PostMapping("/send")
+    public ResponseEntity<String> sendEmailToAll(@Valid @RequestBody Message message) {
         emailService.sendEmailToAll(message);
         return ResponseEntity.ok("Email sent to all addresses successfully!");
     }

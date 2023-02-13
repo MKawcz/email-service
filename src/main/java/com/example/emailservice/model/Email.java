@@ -1,4 +1,4 @@
-package com.example.emailapi.model;
+package com.example.emailservice.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,5 +14,5 @@ public class Email {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmail;
     @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Email has an invalid format")
-    private String email;
+    private String address;
 }
