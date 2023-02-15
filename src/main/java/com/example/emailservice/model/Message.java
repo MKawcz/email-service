@@ -9,4 +9,5 @@ public class Message {
     private String subject;
     @NotBlank
     private String content;
+    private String pathToAttachment;
 }

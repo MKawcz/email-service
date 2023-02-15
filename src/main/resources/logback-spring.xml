@@ -1,0 +1,23 @@
+<configuration>
+    <appender name="integration" class="ch.qos.logback.core.FileAppender">
+        <file>logs/integration.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="general" class="ch.qos.logback.core.FileAppender">
+        <file>logs/general.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework.web" level="DEBUG" additivity="false">
+        <appender-ref ref="integration"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="general"/>
+    </root>
+</configuration>
