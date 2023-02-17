@@ -116,6 +116,15 @@ And change this property:
 helper.setFrom("youremail@example.com");
 ```
 
+## Logging
+Application logs are configured in the file:
+```
+src/main/resources/logback-spring.xml
+```
+This configuration creates a 'logs' folder with two files: 'general.log' 
+and 'integration.log'. The 'general.log' contains general logs of the application.
+The 'integration.log' file stores integration logs, i.e. related to incoming requests.
+
 ## Running the tests
 
 To run application service methods tests, please go to the file: 
