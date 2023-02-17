@@ -5,8 +5,6 @@ import com.example.emailservice.model.Message;
 import com.example.emailservice.service.EmailService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +14,8 @@ import java.util.List;
 @RequestMapping("/emails")
 @RequiredArgsConstructor
 public class EmailController {
-
     private final EmailService emailService;
+
     @PostMapping
     public ResponseEntity<Email> saveEmail(@Valid @RequestBody Email email) {
         Email savedEmail = emailService.saveEmail(email);
@@ -52,5 +50,4 @@ public class EmailController {
         emailService.sendEmailToAll(message);
         return ResponseEntity.ok("Email \"" + message.getSubject() + "\" sent to all addresses successfully!");
     }
-
 }

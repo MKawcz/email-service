@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
+
 @Entity
 @Data
 public class Email {
