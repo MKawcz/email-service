@@ -22,6 +22,11 @@ public class EmailController {
         return ResponseEntity.ok(savedEmail);
     }
 
+    @GetMapping("/{emailId}")
+    public ResponseEntity<Email> getEmailById(@PathVariable long emailId) {
+        return ResponseEntity.ok(emailService.getEmailById(emailId));
+    }
+
     @PutMapping("/{emailId}")
     public ResponseEntity<Email> updateEmail(@PathVariable long emailId,
                                              @Valid @RequestBody Email email
@@ -32,11 +37,6 @@ public class EmailController {
     @GetMapping
     public ResponseEntity<List<Email>> getAllEmails() {
         return ResponseEntity.ok(emailService.getAllEmails());
-    }
-
-    @GetMapping("/{emailId}")
-    public ResponseEntity<Email> getEmailById(@PathVariable long emailId) {
-        return ResponseEntity.ok(emailService.getEmailById(emailId));
     }
 
     @DeleteMapping("/{emailId}")

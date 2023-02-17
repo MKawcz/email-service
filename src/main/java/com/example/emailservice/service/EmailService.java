@@ -64,7 +64,7 @@ public class EmailService {
             try {
                 MimeMessage mimeMessage = javaMailSender.createMimeMessage();
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-                helper.setFrom("kmikolaj49@gmail.com");
+//                helper.setFrom("");
                 helper.setTo(email.getAddress());
                 helper.setSubject(message.getSubject());
                 helper.setText(message.getContent());
